@@ -1,9 +1,11 @@
 @import url('./normalize.css');
+@import url('./utils.css');
 
 :root {
   --primary-font: 'Karla', sans-serif;
 
   --primary-color: #fff;
+  --secondary-color: #D49520;
 }
 
 body, html {
@@ -15,8 +17,32 @@ html {
 }
 
 body {
+  padding-top: 5rem;
   font-size: 1.6rem;
 
   background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
   color: var(--primary-color);
+}
+
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.input-container .input-item {
+  width: 300px;
+
+  outline: none;
+  margin-right: 2rem;
+  padding: 1rem 2rem;
+  border: 3px solid transparent;
+  border-radius: 5px;
+
+  transition: all .1s ease-in-out;
+}
+
+.input-container .input-item:focus {
+  border-color: var(--secondary-color);
 }
