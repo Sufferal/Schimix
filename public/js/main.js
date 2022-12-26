@@ -6,12 +6,16 @@ const listElem = document.querySelector("#list");
 // Clear input on load
 window.onload = () => clearInput(inputAddElem);
 
-const addListItem = (e) => {  
+const addListItem = (e) => {
   // Prevent submit
   e.preventDefault();
 
   // Get input value
   const inputAddValue = inputAddElem.value;
+
+  // Check for empty, short and long input
+  if (!inputAddValue || inputAddValue.length < 4 || inputAddValue.length > 50)
+    return false;
 
   // Create, set text and append to list
   const listItem = document.createElement("li");
