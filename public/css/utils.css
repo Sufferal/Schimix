@@ -1,6 +1,7 @@
+/* ============================================== Button =============================================== */
 .btn {
   width: 100px;
-
+  
   background: var(--primary-color);
   color: var(--secondary-color);
   border: none;
@@ -14,4 +15,36 @@
 .btn:hover {
   background: var(--secondary-color);
   color: var(--primary-color);
+}
+
+.btn-icon {
+  width: auto;
+  padding: 0;
+  border-radius: 0;
+}
+
+.btn-icon:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.btn-icon i {
+  font-size: 2.2rem;
+}
+
+.btn-icon.btn-update {
+  color: var(--update-color);
+}
+
+.btn-icon.btn-delete {
+  color: var(--delete-color);
+}
+
+/* ============================================== Text =============================================== */
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
 }

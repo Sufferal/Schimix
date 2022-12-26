@@ -1,7 +1,7 @@
 const inputAddElem = document.querySelector("#input-add");
 const btnAddElem = document.querySelector("#btn-add");
 
-const listElem = document.querySelector("#list");
+const listElem = document.querySelector("#list-schedule");
 
 // Clear input on load
 window.onload = () => clearInput(inputAddElem);

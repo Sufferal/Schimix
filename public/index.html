@@ -13,6 +13,12 @@
       rel="stylesheet"
     />
 
+    <!-- Font awesome -->
+    <script
+      src="https://kit.fontawesome.com/32907fca90.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="./css/main.css" />
 
@@ -57,12 +63,60 @@
         id="input-add"
         class="input-item"
         type="text"
-        placeholder="Enter something..."
+        placeholder="Enter activity..."
       />
       <button id="btn-add" class="btn btn-item" type="submit">Add</button>
     </form>
 
-    <ul id="list" class="list"></ul>
+    <ul id="list-schedule" class="list-schedule">
+      <!-- First item -->
+      <li class="list-schedule-item">
+        <h2 class="schedule-item-time">
+          07:00 <span class="text-secondary">AM</span>
+        </h2>
+        <h2 class="schedule-item-desc">Wake up</h2>
+        <div class="schedule-item-btns">
+          <button class="btn btn-icon btn-update">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button class="btn btn-icon btn-delete">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </li>
+
+      <!-- Second item -->
+      <li class="list-schedule-item">
+        <h2 class="schedule-item-time">
+          07:10 <span class="text-secondary">AM</span>
+        </h2>
+        <h2 class="schedule-item-desc">Play Tanki</h2>
+        <div class="schedule-item-btns">
+          <button class="btn btn-icon btn-update">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button class="btn btn-icon btn-delete">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </li>
+
+      <!-- Third item -->
+      <li class="list-schedule-item">
+        <h2 class="schedule-item-time">
+          08:00 <span class="text-secondary">AM</span>
+        </h2>
+        <h2 class="schedule-item-desc">Read 'The book thief'</h2>
+        <div class="schedule-item-btns">
+          <button class="btn btn-icon btn-update">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button class="btn btn-icon btn-delete">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
 
     <script src="./js/main.js"></script>
   </body>

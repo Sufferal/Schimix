@@ -1,11 +1,16 @@
 @import url('./normalize.css');
+@import url('./default.css');
 @import url('./utils.css');
 
 :root {
   --primary-font: 'Karla', sans-serif;
 
   --primary-color: #fff;
-  --secondary-color: #D49520;
+  --secondary-color: #FF6700;
+  --background-color: #3a47d5;
+
+  --update-color: #228B22;
+  --delete-color: #ff6a74;
 }
 
 body, html {
@@ -24,15 +29,17 @@ body {
   color: var(--primary-color);
 }
 
-
+/* =================================================== INPUT ============================================= */
 .input-container {
+  margin-bottom: 5rem;
+
   display: flex;
   justify-content: center;
   align-items: center;  
 }
 
 .input-container .input-item {
-  width: 300px;
+  width: 260px;
 
   outline: none;
   margin-right: 2rem;
@@ -45,4 +52,46 @@ body {
 
 .input-container .input-item:focus {
   border-color: var(--secondary-color);
+}
+
+/* =================================================== LIST ============================================= */
+.list-schedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-schedule-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--primary-color);
+  color: var(--background-color);
+
+  margin-bottom: 2rem;
+  border: 3px solid var(--background-color);
+  border-radius: 3px;
+}
+
+.list-schedule-item .schedule-item-time,
+.list-schedule-item .schedule-item-desc {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  padding: 1rem;
+  border-right: 3px solid var(--background-color);
+}
+
+.list-schedule-item .schedule-item-desc {
+  width: 30vw;
+}
+
+.list-schedule-item .btn.btn-icon {
+  padding: 1rem;
+  border-right: 3px solid var(--background-color);
+}
+
+.list-schedule-item .btn.btn-icon:last-child {
+  border-right: 0;
 }
