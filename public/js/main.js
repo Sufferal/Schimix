@@ -1,10 +1,12 @@
+// Input elements
 const inputAddElem = document.querySelector("#input-add");
 const btnAddElem = document.querySelector("#btn-add");
 
+// List elements
 const listElem = document.querySelector("#list-schedule");
-
-// Clear input on load
-window.onload = () => clearInput(inputAddElem);
+const listItemsDeleteBtns = document.querySelectorAll(
+  ".list-schedule-item .btn.btn-delete"
+);
 
 const addListItem = (e) => {
   // Prevent submit
@@ -17,6 +19,7 @@ const addListItem = (e) => {
   if (!inputAddValue || inputAddValue.length < 4 || inputAddValue.length > 50)
     return false;
 
+  // How the list item is going to look
   const listItemTemplate = `
     <h2 class="schedule-item-time">
       08:00 <span class="text-secondary">AM</span>
@@ -34,8 +37,9 @@ const addListItem = (e) => {
 
   // Create, set text and append to list
   const listItem = document.createElement("li");
-  listItem.classList = 'list-schedule-item';
+  listItem.classList = "list-schedule-item";
   listItem.innerHTML = DOMPurify.sanitize(listItemTemplate);
+  listItem.addEventListener("click", deleteListItem);
   listElem.appendChild(listItem);
 
   // Clear and focus input
@@ -43,13 +47,26 @@ const addListItem = (e) => {
   inputAddElem.focus();
 };
 
+const deleteListItem = (e) => {
+  e.target.closest(".list-schedule-item").remove();
+};
+
+const clearInput = (elem) => {
+  elem.value = "";
+};
+
+// Clear input on load
+window.onload = () => clearInput(inputAddElem);
+
+// Add list item
+btnAddElem.addEventListener("click", addListItem);
 inputAddElem.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     addListItem(e);
   }
 });
-btnAddElem.addEventListener("click", addListItem);
 
-const clearInput = (elem) => {
-  elem.value = "";
-};
+// Delete list item for existing list items
+for (let i = 0; i < listItemsDeleteBtns.length; i++) {
+  listItemsDeleteBtns[i].addEventListener("click", deleteListItem);
+}
