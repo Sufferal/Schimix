@@ -1,5 +1,6 @@
 // Input elements
-const inputAddElem = document.querySelector("#input-add");
+const inputActivityElem = document.querySelector("#input-activity");
+const inputTimeElem = document.querySelector("#input-time");
 const btnAddElem = document.querySelector("#btn-add");
 
 // List elements
@@ -8,23 +9,41 @@ const listItemsDeleteBtns = document.querySelectorAll(
   ".list-schedule-item .btn.btn-delete"
 );
 
+// Time format: 17:30 => 05:30 PM
+const formatTime = (timeString) => {
+  const [hourString, minute] = timeString.split(":");
+  const hour = +hourString % 24;
+  let hourTmp = hour % 12 || 12;
+  if (hourTmp < 10) hourTmp = "0" + hourTmp;
+  return hourTmp + ":" + minute + (hour < 12 ? "AM" : "PM");
+};
+
 const addListItem = (e) => {
   // Prevent submit
   e.preventDefault();
 
   // Get input value
-  const inputAddValue = inputAddElem.value;
+  const inputActivityValue = inputActivityElem.value;
+  const inputTimeValue = inputTimeElem.value;
 
   // Check for empty, short and long input
-  if (!inputAddValue || inputAddValue.length < 4 || inputAddValue.length > 50)
+  if (
+    !inputActivityValue ||
+    !inputTimeValue ||
+    inputActivityValue.length < 4 ||
+    inputActivityValue.length > 50
+  )
     return false;
+
+  const inputTimeFormated = formatTime(inputTimeValue).slice(0, -2);
+  const inputTimeZone = formatTime(inputTimeValue).slice(-2);
 
   // How the list item is going to look
   const listItemTemplate = `
     <h2 class="schedule-item-time">
-      08:00 <span class="text-secondary">AM</span>
+      ${inputTimeFormated} <span class="text-secondary">${inputTimeZone}</span>
     </h2>
-    <h2 class="schedule-item-desc">${inputAddValue}</h2>
+    <h2 class="schedule-item-desc">${inputActivityValue}</h2>
     <div class="schedule-item-btns">
       <button class="btn btn-icon btn-update">
         <i class="fa-regular fa-pen-to-square"></i>
@@ -39,12 +58,15 @@ const addListItem = (e) => {
   const listItem = document.createElement("li");
   listItem.classList = "list-schedule-item";
   listItem.innerHTML = DOMPurify.sanitize(listItemTemplate);
-  listItem.addEventListener("click", deleteListItem);
+  listItem
+    .querySelector(".btn.btn-delete")
+    .addEventListener("click", deleteListItem);
   listElem.appendChild(listItem);
 
   // Clear and focus input
-  clearInput(inputAddElem);
-  inputAddElem.focus();
+  clearInput(inputActivityElem);
+  clearInput(inputTimeElem);
+  inputActivityElem.focus();
 };
 
 const deleteListItem = (e) => {
@@ -56,14 +78,15 @@ const clearInput = (elem) => {
 };
 
 // Clear input on load
-window.onload = () => clearInput(inputAddElem);
+window.onload = () => {
+  clearInput(inputActivityElem);
+  clearInput(inputTimeElem);
+};
 
 // Add list item
 btnAddElem.addEventListener("click", addListItem);
-inputAddElem.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    addListItem(e);
-  }
+inputActivityElem.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !inputTimeElem.value) inputTimeElem.focus();
 });
 
 // Delete list item for existing list items
