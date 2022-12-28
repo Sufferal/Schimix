@@ -65,11 +65,7 @@
         type="text"
         placeholder="Enter activity..."
       />
-      <input
-        id="input-time"
-        class="input-item input-time"
-        type="time"
-      />
+      <input id="input-time" class="input-item input-time" type="time" />
       <button id="btn-add" class="btn btn-item" type="submit">Add</button>
     </form>
 
@@ -123,7 +119,37 @@
       </li>
     </ul>
 
+    <button id="open" class="btn" style="min-width: 100vw; min-height: 25vh">
+      Click me please
+    </button>
+
+    <div id="modal" class="modal">
+      <div class="modal-container">
+        <h2 class="modal-title">Edit <span class="text-secondary">activity</span></h2>
+        <form class="modal-form">
+          <div class="form-item">
+            <label for="activity-name">Activity:</label>
+            <input
+              type="text"
+              name="activity-name"
+              id="activity-upd"
+              required
+            />
+          </div>
+          <div class="form-item">
+            <label for="time-val">Time:</label>
+            <input type="time" name="time-val" id="time-upd" required />
+          </div>
+        </form>
+        <div class="btn-wrapper">
+          <button id="btn-save" class="btn btn-save">Save</button>
+          <button id="btn-cancel" class="btn btn-delete">Cancel</button>
+        </div>
+      </div>
+    </div>
+
     <script src="./js/purify.min.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>

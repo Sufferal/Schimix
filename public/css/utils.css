@@ -9,12 +9,32 @@
   padding: 1rem 2rem;
   cursor: pointer;
 
-  transition: all .1s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .btn:hover {
   background: var(--secondary-color);
   color: var(--primary-color);
+}
+
+.btn-save {
+  color: var(--primary-color);
+  background: var(--save-color);
+}
+
+.btn-save:hover {
+  color: var(--save-color);
+  background: var(--primary-color);
+}
+
+.btn-delete {
+  color: var(--primary-color);
+  background: var(--delete-color);
+}
+
+.btn-delete:hover {
+  color: var(--delete-color);
+  background: var(--primary-color);
 }
 
 .btn-icon {
@@ -37,7 +57,9 @@
 }
 
 .btn-icon.btn-delete {
-  color: var(--delete-color);
+  background: none !important
+  ;
+  color: var(--delete-color) !important;
 }
 
 /* ============================================== Text =============================================== */

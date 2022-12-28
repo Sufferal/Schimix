@@ -1,4 +1,8 @@
 /* Developer default styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 ul {
   list-style: none;
 }

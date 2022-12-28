@@ -1,19 +1,23 @@
-@import url('./normalize.css');
-@import url('./default.css');
-@import url('./utils.css');
+@import url("./normalize.css");
+@import url("./default.css");
+@import url("./utils.css");
+@import url("./modal.css");
 
 :root {
-  --primary-font: 'Karla', sans-serif;
+  --primary-font: "Karla", sans-serif;
 
   --primary-color: #fff;
-  --secondary-color: #FF6700;
+  --secondary-color: #ff6700;
   --background-color: #3a47d5;
 
-  --update-color: #228B22;
-  --delete-color: #ff6a74;
+  --update-color: #228b22;
+  --delete-color: #E23636;
+
+  --save-color: #228b22;
 }
 
-body, html {
+body,
+html {
   font-family: var(--primary-font);
 }
 
@@ -35,19 +39,19 @@ body {
 
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .input-container .input-item {
   width: 260px;
-  
+
   outline: none;
   margin-right: 2rem;
   padding: 1rem 2rem;
   border: 3px solid transparent;
   border-radius: 5px;
-  
-  transition: all .1s ease-in-out;
+
+  transition: all 0.1s ease-in-out;
 }
 
 .input-container .input-item:focus {
